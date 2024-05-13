@@ -64,6 +64,7 @@ int main(){
         cout << "Porcentaje positivos -> " << (countPos * 100) / totalNums << "%" << endl; 
         cout << "Porcentaje negativos -> " << (countNeg * 100) / totalNums << "%" << endl; 
 
+        //calculamos el punto C
         totalPos += countPos; 
 
         maxPar = 0;
