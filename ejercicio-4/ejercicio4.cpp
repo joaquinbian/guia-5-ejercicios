@@ -16,11 +16,10 @@ c) Cuántos números positivos había en total entre los 10 grupos. Se informa 1
 
 int main(){
 
-    int GROUPS = 10;
-
+    //numero que ingresa el usuario
     int num;
 
-    int maxPar, maxImpar, countPos, countNeg, totalPos;
+    int maxPar, maxImpar, countPos, countNeg, totalPos = 0;
 
     for(int i = 0; i < 10; i++){
 
