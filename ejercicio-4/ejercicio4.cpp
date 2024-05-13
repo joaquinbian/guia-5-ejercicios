@@ -20,7 +20,7 @@ int main(){
 
     int num;
 
-    int maxPar, maxImpar, countPos, countNeg;
+    int maxPar, maxImpar, countPos, countNeg, totalPos;
 
     for(int i = 0; i < 10; i++){
 
@@ -64,6 +64,7 @@ int main(){
         cout << "Porcentaje positivos -> " << (countPos * 100) / totalNums << "%" << endl; 
         cout << "Porcentaje negativos -> " << (countNeg * 100) / totalNums << "%" << endl; 
 
+        totalPos += countPos; 
 
         maxPar = 0;
         maxImpar = 0;
@@ -71,7 +72,7 @@ int main(){
         countPos = 0;
     }
 
-
+    cout << "Total de positivos " << totalPos << endl;
 
     return 0;
 }
