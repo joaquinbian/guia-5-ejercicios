@@ -23,9 +23,12 @@ Grupo 1          Grupo 2       Grupo 3        Grupo 4        Grupo 5
 
 int main(){
     
+    //variables que manejamos los numeros
     int num, prevNum;
 
-    string a = " ";
+    int cantPrimos = 0;
+    bool isPrime;
+
 
     for(int i = 0; i < 5; i++){
         cout << "Complete el grupo " << i + 1 << endl;
@@ -39,9 +42,22 @@ int main(){
         prevNum = num;
 
         while(num >= prevNum){
-
-            
-
+            isPrime = true;
+            //calculamos el punto A
+            for(int i = num - 1; i > 1; i--){
+                if(num > 1){
+                    if((num % i == 0)){
+                        isPrime = false;
+                    }
+                } else {
+                    isPrime = false;
+                }
+            }
+            //si isPrime todavia es verdadero, es pq es primo
+            if(num > 1 && isPrime){
+                cout << num << " Es primo" << endl; 
+                cantPrimos++;
+            }
 
 
             cout << "Ingrese numero: ";
@@ -53,9 +69,10 @@ int main(){
 
         }
 
+        cout << "La cantidad de numeros primos del grupo " << i + 1 << " es " << cantPrimos << endl;
+
+        cantPrimos = 0; 
         
-       cout << "Numeros del grupo " << i + 1 << " " << a << endl;
-        a = "";
         
     }
     return 0;
