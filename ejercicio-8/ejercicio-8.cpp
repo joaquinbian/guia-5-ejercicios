@@ -49,8 +49,6 @@ int main(){
                     if((num % i == 0)){
                         isPrime = false;
                     }
-                } else {
-                    isPrime = false;
                 }
             }
             //si isPrime todavia es verdadero, es pq es primo
