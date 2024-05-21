@@ -26,7 +26,9 @@ int main(){
     //variables que manejamos los numeros
     int num, prevNum;
 
-    int cantPrimos = 0;
+
+    int cantPrimos, prevPositiveNumber, lastPositiveNumber, aux = 0;
+    int numPar = 1;
     bool isPrime;
 
 
@@ -53,8 +55,20 @@ int main(){
             }
             //si isPrime todavia es verdadero, es pq es primo
             if(num > 1 && isPrime){
-                cout << num << " Es primo" << endl; 
                 cantPrimos++;
+            }
+
+            //punto B
+            if((numPar == 1 || num < numPar) && num % 2 == 0){
+                numPar = num;
+            }
+
+
+            //punto C
+            if(num > 0){
+                aux = lastPositiveNumber;
+                lastPositiveNumber = num;
+                prevPositiveNumber = aux;
             }
 
 
@@ -68,8 +82,17 @@ int main(){
         }
 
         cout << "La cantidad de numeros primos del grupo " << i + 1 << " es " << cantPrimos << endl;
+        cout << "El menor numero par es " << numPar << endl;
 
+        if(prevPositiveNumber != 0){
+            cout << "El anteultimo numero positivo del grupo es " << prevPositiveNumber << endl; 
+        }
+
+        cout << "El ultimo numero positivo del grupo es " << lastPositiveNumber << endl; 
         cantPrimos = 0; 
+        numPar = 1;
+        prevPositiveNumber = 0;
+        lastPositiveNumber = 0;
         
         
     }
