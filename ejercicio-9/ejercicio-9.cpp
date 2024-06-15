@@ -24,7 +24,7 @@ b) El número de camión que transporta mayor cantidad de encomiendas. En el eje
 
 int main(){
 
-   int peso = 0, pesoAct = 0, numCamion = 1, sumPeso = 0;
+   int peso = 0, pesoAct = 0, numCamion = 1, sumPeso = 0, cantEncomiendas = 0, encomiendasMax = 0, camionMaxEncomiendas;
    const int PESO_MAX = 200;
 
 
@@ -36,25 +36,44 @@ int main(){
    cin >> peso;
 
    while(peso >= 0){
-      
 
       sumPeso += peso;
+      
+   
+
       while(sumPeso <= PESO_MAX && peso >= 0){
          cout << "El peso ingresado es " << peso << endl << endl;
          cout << "El camion es " << numCamion << endl << endl;
          cout << "El peso actual es " << sumPeso << endl << endl;
 
          cout << "Peso: ";
+
+
+         cantEncomiendas++;
+
          cin >> peso;
 
          sumPeso += peso;
          
       }
 
+      if(encomiendasMax == 0 || cantEncomiendas > encomiendasMax){
+         encomiendasMax = cantEncomiendas;
+         camionMaxEncomiendas = numCamion;
+      }
+
+      //punto A
+      cout << "Camion " << numCamion << ": " << sumPeso - peso << "kg" << endl;
+
       numCamion++;
       sumPeso = 0;
+      cantEncomiendas = 0;
 
    }
+
+
+   cout << "El camion con mas encomiendas es el " << camionMaxEncomiendas << " con " << encomiendasMax <<
+   endl ;
 
 
    return 0; 
