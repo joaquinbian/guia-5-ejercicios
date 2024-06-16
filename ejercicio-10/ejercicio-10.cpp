@@ -56,27 +56,27 @@ int main(){
                 zeroCounter = 0;
             }
 
+
+            restPrimeCounter = 0;
             //punto A
             for(int i = num - 1; i > 1; i--){
-                cout << num << " En el for" << endl;
 
                 if(num % i == 0){
                     restPrimeCounter++;
                 }
 
-                if(restPrimeCounter > 2){
-                    break;
-                }
+                
             }
 
-            if(restPrimeCounter < 2){
+            if(restPrimeCounter == 0){
+                cout << "se detecto un primo " << num << endl;  
                 primeConsecuitives++;
-                restPrimeCounter = 0;
-            } else if(primeConsecuitives == 4){
+            }
+            
+             
+             if(primeConsecuitives == 4){
                 groupsFourPrimeConsecutives++;
             }
-
-
 
 
             cout << "El numero ingresado es " << num << endl;
@@ -90,6 +90,8 @@ int main(){
         }
     }
 
+    
+    cout << "La cantidad de grupos donde se ingresaron 4 numeros primos es " << groupsFourPrimeConsecutives << endl;
 
 
     return 0;
