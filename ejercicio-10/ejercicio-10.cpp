@@ -24,7 +24,9 @@ Ejemplo de una posible lista: 5, 4, 3, 0, 18, -5, 20, 0, 7, 11, 25, 4, 0, 0.
 
 int main(){
 
-    int group = 1, zeroCounter = 0, num;
+    int group = 1, zeroCounter = 0, restPrimeCounter = 0, primeConsecuitives = 0, groupsFourPrimeConsecutives = 0, num;
+
+    bool prevNumWasPrime = false;
     
 
     cout << "Ingresa tantos numeros como quieras " << endl;
@@ -43,6 +45,9 @@ int main(){
         cout << "Numero: ";
         cin >> num; 
 
+        if(primeConsecuitives > 0){
+            primeConsecuitives = 0;
+        }
 
         while(num != 0){
             
@@ -50,6 +55,29 @@ int main(){
             if(zeroCounter > 0){
                 zeroCounter = 0;
             }
+
+            //punto A
+            for(int i = num - 1; i > 1; i--){
+                cout << num << " En el for" << endl;
+
+                if(num % i == 0){
+                    restPrimeCounter++;
+                }
+
+                if(restPrimeCounter > 2){
+                    break;
+                }
+            }
+
+            if(restPrimeCounter < 2){
+                primeConsecuitives++;
+                restPrimeCounter = 0;
+            } else if(primeConsecuitives == 4){
+                groupsFourPrimeConsecutives++;
+            }
+
+
+
 
             cout << "El numero ingresado es " << num << endl;
 
