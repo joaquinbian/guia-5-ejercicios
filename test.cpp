@@ -89,6 +89,9 @@ int main (){
             int z = asignarEmbaucadora();
             for(int x = 0; x < 3; x ++){
 
+              jugador1CambioCarta = false;
+              jugador2CambioCarta = false;
+
                 cout << "EMBAUCADO" << endl << "----------------------------------------" << endl;
                 cout << "RONDA #" << x + 1  <<endl;
                 cout << jugador1 << " Vs " << jugador2 << endl << endl;
@@ -110,7 +113,7 @@ int main (){
                     PuntosA -= 20;
                   }
 
-                  } while((jugador1CambioEmbaucadora != 's' || jugador1CambioEmbaucadora != 'S') || (jugador1CambioEmbaucadora == 'n' || jugador1CambioEmbaucadora == 'N'));
+                  } while((jugador1CambioEmbaucadora != 's' || jugador1CambioEmbaucadora != 'S') || (jugador1CambioEmbaucadora != 'n' || jugador1CambioEmbaucadora != 'N'));
 
                 } else if(PuntosB >= 20 && jugador1CambioCarta == false){
                   do {
@@ -121,7 +124,7 @@ int main (){
                     jugador2CambioCarta = true;
                     PuntosB -= 20;
                   }
-                  } while((jugador2CambioEmbaucadora != 's' || jugador2CambioEmbaucadora != 'S') || (jugador2CambioEmbaucadora == 'n' || jugador2CambioEmbaucadora == 'N'));
+                  } while((jugador2CambioEmbaucadora != 's' || jugador2CambioEmbaucadora != 'S') || (jugador2CambioEmbaucadora != 'n' || jugador2CambioEmbaucadora != 'N'));
                 }
                } else if (x == 2){
                 if(PuntosB >= 20){
@@ -135,7 +138,7 @@ int main (){
                     PuntosB -= 20;
                   }
 
-                  } while((jugador2CambioEmbaucadora != 's' || jugador2CambioEmbaucadora != 'S') || (jugador2CambioEmbaucadora == 'n' || jugador2CambioEmbaucadora == 'N'));
+                  } while((jugador2CambioEmbaucadora != 's' || jugador2CambioEmbaucadora != 'S') || (jugador2CambioEmbaucadora != 'n' || jugador2CambioEmbaucadora != 'N'));
 
                 } else if(PuntosA >= 20 && jugador2CambioCarta == false){
                   do {
@@ -146,7 +149,7 @@ int main (){
                     jugador1CambioCarta = true;
                     PuntosA -= 20;
                   }
-                  } while((jugador1CambioEmbaucadora != 's' || jugador1CambioEmbaucadora != 'S' )|| (jugador1CambioEmbaucadora == 'n' || jugador1CambioEmbaucadora == 'N'));
+                  } while((jugador1CambioEmbaucadora != 's' || jugador1CambioEmbaucadora != 'S' )|| (jugador1CambioEmbaucadora != 'n' || jugador1CambioEmbaucadora != 'N'));
                 }
                }
 
