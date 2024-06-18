@@ -24,7 +24,13 @@ Ejemplo de una posible lista: 5, 4, 3, 0, 18, -5, 20, 0, 7, 11, 25, 4, 0, 0.
 
 int main(){
 
-    int group = 1, zeroCounter = 0, restPrimeCounter = 0, primeConsecuitives = 0, groupsFourPrimeConsecutives = 0, num;
+    int num, posNum = 0;
+
+    //variables A
+    int group = 0, zeroCounter = 0, restPrimeCounter = 0, primeConsecuitives = 0, groupsFourPrimeConsecutives = 0;
+
+    //variables B
+    int maxNeg = 0, secMaxNeg = 0, posMaxNeg, posSecMaxNeg, posAux,  auxNeg;
 
     bool prevNumWasPrime = false;
     
@@ -48,9 +54,11 @@ int main(){
         if(primeConsecuitives > 0){
             primeConsecuitives = 0;
         }
-
+        //incrementamos los grupos en 1
+        group++;
         while(num != 0){
             
+            posNum++;
             //si antes se ingreso un 0, se resetea el contador
             if(zeroCounter > 0){
                 zeroCounter = 0;
@@ -67,17 +75,29 @@ int main(){
 
                 
             }
-
             if(restPrimeCounter == 0){
                 cout << "se detecto un primo " << num << endl;  
                 primeConsecuitives++;
             }
-            
-             
              if(primeConsecuitives == 4){
                 groupsFourPrimeConsecutives++;
             }
 
+
+            //punto B
+            if(num < 0){
+                if(maxNeg == 0){
+                    maxNeg = num;
+                    posMaxNeg = posNum;
+                } else if(num > maxNeg){
+                    auxNeg = maxNeg;
+                    maxNeg = num;
+                    secMaxNeg = auxNeg;
+                    
+                } else if(num > secMaxNeg){
+                    secMaxNeg = num;
+                }
+            }
 
             cout << "El numero ingresado es " << num << endl;
 
@@ -85,12 +105,32 @@ int main(){
             cin >> num;      
         }
 
+
+        //mostramos punto B
+        if(maxNeg != 0){
+            cout << "--------- B ---------" << endl;
+            cout << "Para el grupo " << group << ":" << endl;
+            cout << "Mayor numero negativo: " << maxNeg << endl;
+            cout << "Segundo mayor numero negativo: " << secMaxNeg << endl;
+            cout << "Posicion: " << posNum << endl;
+
+        } else {
+            cout << "--------- B ---------" << endl;
+            cout << "NO se encontraron numeros negativos en el grupo " << group << endl;
+        }
+        posNum = 0;
+        maxNeg = 0;
+        secMaxNeg = 0;
+        auxNeg = 0;
+
+
+
         if(num == 0){
             zeroCounter++;
         }
     }
 
-    
+    cout << "--------- A ---------" << endl;    
     cout << "La cantidad de grupos donde se ingresaron 4 numeros primos es " << groupsFourPrimeConsecutives << endl;
 
 
